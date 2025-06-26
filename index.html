@@ -1,200 +1,312 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>From Jawsyan to Nadia Mohammadi</title>
-    <script>
-        alert("Hy My friend ♥");
-        alert("It seems like someone's birthday");
-        alert("hahahaha");
-        alert("Happy birthday Nadia Mohammadi🎂");
-        alert("May you have a long life and always be healthy!");
-        alert("As you grow older, may you be more successful and happy.");
-        alert("May all your wishes come true!");
-        alert("Always take care of your health.");
-        alert("Don't skip meals!");
-        alert("Don't forget your worship either, My penpal.");
-        alert("I can't possibly forget the birthday of someone who always colors my days.");
-        alert("Not just a little, but always vibrant and colorful!");
-        alert("Hehehe, please don't laugh at my sincerity.");
-        alert("I just wanted this to be special!");
-        alert("I hope today marks the start of a wonderful new year for you.");
-        alert("Once again, happy birthday!");
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ucapan Ulang Tahun Romantis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
         body {
-            perspective: 800px;
-            background-color: #f0f0f0;
-            font-family: sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
             margin: 0;
+            overflow-x: hidden;
         }
-
+        
+        .heart {
+            position: absolute;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+        
         .card {
-            width: 300px;
-            height: 400px;
-            position: relative;
             transform-style: preserve-3d;
-            transform: rotateY(0deg);
-            transition: transform 1s;
+            transition: all 0.5s ease;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
         }
-
+        
         .card:hover {
-            transform: rotateY(180deg);
+            transform: rotateY(10deg) rotateX(5deg);
         }
-
-        .front, .back {
+        
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .dancing-font {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .envelope {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            background: #f8c8dc;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .envelope:before {
+            content: '';
+            position: absolute;
+            top: 10;
+            width: 0;
+            height: 0;
+            border-left: 200px solid transparent;
+            border-right: 200px solid transparent;
+            border-top: 150px solid #f8a8c8;
+            transform-origin: top;
+            transform: rotateX(0deg);
+            transition: all 0.3s ease 0.3s;
+            z-index: 5;
+        }
+        
+        .envelope.open:before {
+            transform: rotateX(180deg);
+            transition: all 0.3s ease;
+        }
+        
+        .letter {
+            position: absolute;
+            background: white;
+            width: 90%;
+            height: 90%;
+            left: 5%;
+            top: 5%;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            z-index: 2;
+            padding: 20px;
+            box-sizing: border-box;
+            transform: translateY(0);
+        }
+        
+        .envelope.open .letter {
+            transform: translateY(-100px);
+            transition: all 0.3s ease 0.3s;
+        }
+        
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            position: absolute;
-            backface-visibility: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            pointer-events: none;
+            z-index: -1;
         }
-
-        .front {
-            background-color: #e6f7ff;
-            color: #333;
+        
+        .photo-frame {
+            border: 10px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: rotate(-5deg);
+            transition: all 0.3s ease;
         }
-
-        .back {
-            background-color: #ffefd5;
-            color: #333;
-            transform: rotateY(180deg);
+        
+        .photo-frame:hover {
+            transform: rotate(0deg) scale(1.05);
         }
-
-        .cake {
-            width: 150px;
-            height: 150px;
-            background-color: #ffc0cb;
-            border-radius: 50%;
-            position: relative;
-            margin-bottom: 20px;
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
         }
-
-        .cake::before {
-            content: "";
-            width: 100px;
-            height: 20px;
-            background-color: #ffb6c1;
-            position: absolute;
-            bottom: 0;
-            left: 25px;
-            border-radius: 10px;
-        }
-
-        .candle {
-            width: 10px;
-            height: 30px;
-            background-color: #f0e68c;
-            position: absolute;
-            top: -15px;
-            left: 70px;
-        }
-
-        .flame {
-            width: 10px;
-            height: 20px;
-            background-color: #ff4500;
-            position: absolute;
-            top: -20px;
-            border-radius: 50% 50% 0 0;
-            animation: flame 1s infinite;
-        }
-
-        @keyframes flame {
+        
+        @keyframes floating {
             0%, 100% {
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-5px);
+                transform: translateY(-10px);
             }
-        }
-
-        .firework {
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            background-color: white;
-            border-radius: 50%;
-            animation: firework 2s infinite;
-        }
-
-        @keyframes firework {
-            0% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-200px);
-                opacity: 0;
-            }
-        }
-
-        .firework:nth-child(1) {
-            top: 50px;
-            left: 50px;
-            animation-delay: 0s;
-        }
-
-        .firework:nth-child(2) {
-            top: 100px;
-            left: 200px;
-            animation-delay: 0.5s;
-        }
-
-        .firework:nth-child(3) {
-            top: 200px;
-            left: 100px;
-            animation-delay: 1s;
-        }
-
-        h1 {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 1.2em;
-            text-align: center;
-        }
-
-        .photo {
-            width: 100px; /* Adjust size as needed */
-            height: auto;
-            border-radius: 50%; /* Make it circular */
-            margin-bottom: 20px;
-            border: 2px solid #ff4500; /* Optional border color */
         }
     </style>
 </head>
-<body>
-
-<div class="card">
-    <div class="front">
-        <h1>Happy birthday Nadia Mohammadi🎂</h1>
-        <p>From J2K14A to u: May this day/month/year be filled with happiness and laughter.</p>
-
-        <img src="https://e.top4top.io/p_3405k4g6e1.jpg" alt="Nadia's Photo" class="photo">
-    </div>
-    <div class="back">
-        <div class="cake">
-            <div class="candle">
-                <div class="flame"></div>
+<body class="flex flex-col items-center justify-center p-4">
+    <div class="hearts-container" id="hearts-container"></div>
+    
+    <div class="max-w-2xl w-full">
+        <div class="card bg-gradient-to-br from-pink-100 to-purple-100 rounded-2xl p-8 mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-center text-pink-600 mb-6 dancing-font text-shadow">
+                Happy Birthday and Sweet Seventeen  ❤️
+            </h1>
+            
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8 mb-8">
+                <div class="photo-frame bg-white p-2 rounded-lg">
+                    <img src="https://ipstatic.net/thumbs/180x180/95/d1/810x1080_1782645470205673737_1782648733823672320.jpg" 
+                         alt="Couple photo" class="w-48 h-48 object-cover rounded">
+                </div>
+                
+                <div class="text-center md:text-left">
+                    <p class="text-lg text-gray-700 mb-4">
+                        Hari ini adalah hari spesial karena dunia ini kedatangan seseorang yang sangat berarti...
+                    </p>
+                    <p class="text-xl font-semibold text-pink-600 dancing-font">
+                        Kamu!
+                    </p>
+                </div>
             </div>
+            
+            <div class="envelope mx-auto mb-8" id="envelope">
+                <div class="letter">
+                    <h3 class="text-xl font-bold text-pink-600 mb-2 dancing-font">Untuk Kamu...</h3>
+                    <p class="text-gray-500">
+                        Menghabiskan waktu bersamamu adalah hadiah terindah. Di hari ulang tahunmu ini, aku berharap semua kebahagiaan dunia menjadi milikmu. 
+                        Terima kasih telah menjadi cahaya sementara dalam hidupku. Aku mencintaimu lebih dari kata-kata yang bisa diungkapkan.
+                    </p>
+                </div>
+            </div>
+            
+           <div class="flex flex-col items-center mb-6">
+    <div class="relative w-44 h-44 md:w-60 md:h-60">
+        <img src="https://pngimg.com/uploads/cake/cake_PNG96858.png" 
+             alt="Birthday Cake" class="w-full h-full object-contain animate-bounce drop-shadow-xl">
+        <div class="absolute top-[30%] left-1/2 transform -translate-x-1/2 text-rose-600 text-6xl font-bold dancing-font drop-shadow-lg">
+            17
         </div>
-        <div class="firework"></div>
-        <div class="firework"></div>
-        <div class="firework"></div>
-        <p>Happy 17th birthday!</p>
     </div>
+    <p class="text-2xl mt-4 text-purple-700 font-semibold dancing-font text-shadow">Selamat Ulang Tahun ke-17, My Keyy!</p>
 </div>
 
+            
+            <div class="text-center">
+                <button class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 floating">
+                    Pesanku yang paling terdalam untukmu 💋
+                </button>
+            </div>
+        </div>
+        
+        <div class="bg-white bg-opacity-90 rounded-2xl p-6 shadow-lg">
+            <h3 class="text-xl font-bold text-center text-gray-800 mb-4">Wishlist Birthday</h3>
+            <ul class="space-y-2">
+                <li class="flex items-center">
+                    <span class="w-6 h-6 bg-pink-200 rounded-full flex items-center justify-center mr-2">❤️</span>
+                    <span>Kebahagiaan tanpa akhir</span>
+                </li>
+                <li class="flex items-center">
+                    <span class="w-6 h-6 bg-pink-200 rounded-full flex items-center justify-center mr-2">❤️</span>
+                    <span>Kesehatan yang selalu terjaga</span>
+                </li>
+                <li class="flex items-center">
+                    <span class="w-6 h-6 bg-pink-200 rounded-full flex items-center justify-center mr-2">❤️</span>
+                    <span>Cinta yang abadi dari aku untukmu</span>
+                </li>
+                <li class="flex items-center">
+                    <span class="w-6 h-6 bg-pink-200 rounded-full flex items-center justify-center mr-2">❤️</span>
+                    <span>Banyak tawa dan sedikit air mata</span>
+                </li>
+                <li class="flex items-center">
+                    <span class="w-6 h-6 bg-pink-200 rounded-full flex items-center justify-center mr-2">❤️</span>
+                    <span>Dan semoga kita sukses didunia dan di akhirat</span>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Create floating hearts
+        function createHearts() {
+            const container = document.getElementById('hearts-container');
+            const colors = ['#ff7675', '#fdcb6e', '#a29bfe', '#fd79a8', '#74b9ff'];
+            
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤️';
+                heart.className = 'heart';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = Math.random() * 100 + 'vh';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                heart.style.opacity = Math.random() * 0.5 + 0.3;
+                heart.style.animationDuration = (Math.random() * 5 + 3) + 's';
+                heart.style.animationDelay = (Math.random() * 2) + 's';
+                container.appendChild(heart);
+            }
+        }
+        
+        // Envelope interaction
+        document.getElementById('envelope').addEventListener('click', function() {
+            this.classList.toggle('open');
+        });
+        
+        // Virtual kiss button
+        document.querySelector('button').addEventListener('click', function() {
+            alert('Terimakasih banyak kepadamu Keyy yang telah tabah dan kuat, jujur aku sangat terkesima dengan ketabahanmu dalam menghadapi segala problem yang menimpamu, dan semoga kamu suka dengan hadiah dan surat yang ku berikan untukmu🧧🎁');
+ alert('Aku minta maaf sedalam dalamnya jika hadiah yang ku berikan ini simpel dan yeah Insha Allah jika kamu perlu bantuan baik itu kasih usulan Dll, Aku akan selalu siap membantumu🫡, From my heart for u🫀');
+
+            
+            // Create explosion of hearts
+            const container = document.getElementById('hearts-container');
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤️';
+                heart.className = 'heart';
+                heart.style.left = '50vw';
+                heart.style.top = '80vh';
+                heart.style.fontSize = (Math.random() * 25 + 15) + 'px';
+                heart.style.opacity = Math.random() * 0.7 + 0.3;
+                heart.style.animation = `fly-${i} 2s ease-out forwards`;
+                
+                // Create unique animation for each heart
+                const angle = Math.random() * Math.PI * 2;
+                const distance = Math.random() * 200 + 100;
+                const x = Math.cos(angle) * distance;
+                const y = Math.sin(angle) * distance - 100;
+                
+                const style = document.createElement('style');
+                style.innerHTML = `
+                    @keyframes fly-${i} {
+                        0% {
+                            transform: translate(0, 0) scale(1);
+                            opacity: 1;
+                        }
+                        100% {
+                            transform: translate(${x}px, ${y}px) scale(0.5);
+                            opacity: 0;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+                
+                container.appendChild(heart);
+                
+                // Remove heart after animation
+                setTimeout(() => {
+                    heart.remove();
+                    style.remove();
+                }, 2000);
+            }
+        });
+        
+        // Initialize
+        window.addEventListener('DOMContentLoaded', () => {
+            createHearts();
+            
+            // Animate elements sequentially
+            const elements = document.querySelectorAll('.card, .photo-frame, .envelope, button');
+            elements.forEach((el, i) => {
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, i * 200);
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.5s ease';
+            });
+        });
+    </script><audio id="firework-sound" src="https://www.fesliyanstudios.com/play-mp3/387" preload="auto"></audio>
 </body>
 </html>
